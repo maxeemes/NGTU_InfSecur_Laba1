@@ -24,28 +24,12 @@ int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	/**********************ТЕСТ****************************/
-	//char FirstLetter = 'а';
-	//char LastLetter = 'я';
-	//cout << "FirstLetter: " << (int)FirstLetter << endl;//-32
-	//cout << "LastLetter: " << (int)LastLetter << endl;//-1
-	//
-	//cout << "FirstLetter: " << (char)-34 << endl;
-	//cout << "LastLetter: " << (char)-1 << endl;
 
-	//for (int i = -32; i < 0; i++)
-	//{
-	//	cout << (char)i << endl;
-	//}
-
-	//cout << "Test: " << (int)'ё' << endl;
-
-	//cout << "n=" << (int)LastLetter - (int)FirstLetter << endl;
-	/**********************ТЕСТ****************************/
-
+	//объявление основных переменных
 	bool IsExit = false;
 	string Message, Key;
 
+	//консольное меню программы
 	do {
 		AddConsoleTextColor("Шифрование сообщений шифром Вижинера", 224);
 		switch (ReadConsoleNum("Для шифрования сообщения введите 1, для расшифровки 2, для выхода 3...", 14))
@@ -65,7 +49,6 @@ int main()
 			cin >> Message;
 			AddConsoleTextColor("Ключ для шифра...", 14);
 			cin >> Key;
-			string DecryptedMessage = RuViginereCipherDecrypt(Message, Key);
 			AddConsoleTextColor("Результат: " + RuViginereCipherDecrypt(Message, Key), 14);
 			break;
 		}
@@ -78,33 +61,6 @@ int main()
 			break;
 		}
 	} while (IsExit == false);
-
-	//AddConsoleTextColor("Шифрование сообщений шифром Вижинера", 224);
-	//string Message, Key;// переменные для сообщения и ключа
-	//AddConsoleTextColor("Введите сообщение...", 14);
-	//cin >> Message;
-	//AddConsoleTextColor("Ключ для шифра...", 14);
-	//cin >> Key;
-
-
-
-	//int n = 32; //размер алфавита
-	//string EncryptedMessage = ""; //переменная для зашифрованного сообщения
-	//for (int i = 0; i < Message.length(); i++)//цикл шифра сообщения
-	//{
-	//	EncryptedMessage += (char)(((tolower((int)Message[i]) + 32 + tolower((int)Key[i % Key.length()]) + 32) % n) - 32);//исправить для символов в конце списка
-	//}
-
-	//AddConsoleTextColor("Message: " + Message);
-	//AddConsoleTextColor("EncryptedMessage: " + EncryptedMessage);
-
-	//string UnEncryptedMessage = ""; //переменная для расшифрованного сообщения
-	//for (int i = 0; i < Message.length(); i++)
-	//{
-	//	UnEncryptedMessage += (char)(((tolower(EncryptedMessage[i]) + 32 - n - tolower((int)Key[i % Key.length()]) + 32) % n) - 32);
-	//}
-	//
-	//AddConsoleTextColor("UnEncryptedMessage: " + UnEncryptedMessage);
 
 	return 0;
 }
